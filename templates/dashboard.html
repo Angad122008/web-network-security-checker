@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1>Your dashboard</h1>
+<p>You are logged in successfully.</p>
+
+<div class="message success">
+    <strong>Welcome, {{ user["username"] }}!</strong>
+    <p>Your protected account page is working.</p>
+</div>
+
+<form method="POST" action="{{ url_for('logout') }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <button type="submit">Log out</button>
+</form>
+{% endblock %}
